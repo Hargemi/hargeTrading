@@ -398,12 +398,12 @@
     <div class="auth-buttons">
       {% if user.is_authenticated %}
         <div class="auth-info">
-          <span>Hola, Usuario</span>
-          <a href="#logout"><i class="fas fa-sign-out-alt"></i></a>
+          <span>Hola, {{ user.username }}</span>
+          <a href="{% url 'logout' %}" title="Cerrar sesión"><i class="fas fa-sign-out-alt"></i></a>
         </div>
       {% else %}
-        <a href="#login" class="btn-auth btn-login">Iniciar Sesión</a>
-        <a href="#registro" class="btn-auth btn-register">Registrarte</a>
+        <a href="{% url 'login' %}" class="btn-auth btn-login">Iniciar Sesión</a>
+        <a href="{% url 'registro' %}" class="btn-auth btn-register">Registrarte</a>
       {% endif %}
     </div>
   </nav>
