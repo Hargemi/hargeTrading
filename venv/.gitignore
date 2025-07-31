@@ -2,3 +2,10 @@ venv/
 db.sqlite3
 __pycache__/
 .env
+.venv
+# Crea el archivo .gitignore si no existe
+echo "/venv/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.py[cod]" >> .gitignore
+echo "*.sqlite3" >> .gitignore
+echo ".env" >> .gitignore
