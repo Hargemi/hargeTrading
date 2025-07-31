@@ -1,0 +1,106 @@
+    {% extends "Curso/padre.html" %}
+{% load static %}
+
+{% block title %}Curso Premium de Trading | Método Hargemi{% endblock %}
+
+{% block meta_description %}Accede al curso completo de trading profesional con 10 videos exclusivos para miembros premium.{% endblock %}
+
+{% block content %}
+<div class="premium-container" style="max-width: 1200px; margin: 2rem auto; padding: 0 1rem;">
+    {% if user.is_authenticated %}
+        <!-- Contenido para usuarios logueados -->
+        <div class="premium-header" style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-family: 'Orbitron', sans-serif; color: var(--color-terciario); margin-bottom: 1rem;">
+                CURSO PREMIUM DE TRADING
+            </h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">
+                Domina los mercados con nuestro método exclusivo - 10 lecciones avanzadas
+            </p>
+        </div>
+
+        <div class="video-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem;">
+            <!-- Video 1 -->
+            <div class="video-card" style="background-color: var(--color-primario); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                <div class="video-thumbnail" style="position: relative; padding-bottom: 56.25%; background-color: #000;">
+                    <video 
+                        controls
+                        controlsList="nodownload" 
+                        style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"
+                        poster="{% static 'curso/previews/leccion1.jpg' %}"
+                    >
+                        <source src="https://customer-VIDEOID.cloudflarestream.com/TU_VIDEO_ID_1/manifest/video.m3u8" type="application/vnd.apple.mpegurl">
+                        <source src="https://customer-VIDEOID.cloudflarestream.com/TU_VIDEO_ID_1/manifest/video.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+                <div class="video-info" style="padding: 1.5rem;">
+                    <h3 style="color: var(--color-secundario); margin-bottom: 0.5rem;">Lección 1: Fundamentos del Trading</h3>
+                    <p style="opacity: 0.8; margin-bottom: 1rem;">Aprende los conceptos básicos para comenzar tu viaje en el trading.</p>
+                    <div class="video-meta" style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="opacity: 0.7; font-size: 0.9rem;">
+                            <i class="fas fa-lock" style="color: var(--color-exito);"></i> Solo miembros
+                        </span>
+                        <small style="opacity: 0.7;">15:32 min</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card" style="background-color: var(--color-primario); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                <div class="video-thumbnail" style="position: relative; padding-bottom: 56.25%; background-color: #000;">
+                    <video 
+                        controls
+                        controlsList="nodownload"
+                        style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"
+                        poster="{% static 'curso/previews/leccion2.jpg' %}"
+                    >
+                        <source src="https://customer-VIDEOID.cloudflarestream.com/TU_VIDEO_ID_2/manifest/video.m3u8" type="application/vnd.apple.mpegurl">
+                        <source src="https://customer-VIDEOID.cloudflarestream.com/TU_VIDEO_ID_2/manifest/video.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info" style="padding: 1.5rem;">
+                    <h3 style="color: var(--color-secundario); margin-bottom: 0.5rem;">Lección 2: Análisis Técnico</h3>
+                    <p style="opacity: 0.8; margin-bottom: 1rem;">Domina las herramientas esenciales del análisis técnico.</p>
+                    <div class="video-meta" style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="opacity: 0.7; font-size: 0.9rem;">
+                            <i class="fas fa-lock" style="color: var(--color-exito);"></i> Solo miembros
+                        </span>
+                        <small style="opacity: 0.7;">22:15 min</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continuar con los videos 3 al 10... -->
+            
+        </div>
+
+        <!-- Protección adicional con tokens JWT (opcional) -->
+        <div style="text-align: center; margin-top: 2rem; padding: 1rem; background-color: rgba(0,0,0,0.2); border-radius: 5px;">
+            <p style="opacity: 0.8;">
+                <i class="fas fa-shield-alt" style="color: var(--color-terciario);"></i>
+                Tus videos están protegidos con cifrado y solo accesibles para tu cuenta.
+            </p>
+        </div>
+
+    {% else %}
+        <!-- Mensaje para usuarios no autenticados -->
+        <div class="auth-required" style="text-align: center; padding: 4rem 2rem; background-color: var(--color-primario); border-radius: 8px; margin-top: 2rem;">
+            <i class="fas fa-lock" style="font-size: 3rem; color: var(--color-destacado); margin-bottom: 1.5rem;"></i>
+            <h2 style="color: var(--color-terciario); margin-bottom: 1rem;">
+                Contenido Exclusivo para Miembros
+            </h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">
+                Debes iniciar sesión y tener una suscripción activa para acceder a este curso premium.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1.5rem;">
+                <a href="{% url 'login' %}?next={% url 'curso_premium' %}" class="btn-auth btn-login" style="padding: 0.8rem 1.5rem;">
+                    Iniciar Sesión
+                </a>
+                <a href="{% url 'registro' %}" class="btn-auth btn-register" style="padding: 0.8rem 1.5rem;">
+                    Registrarse
+                </a>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

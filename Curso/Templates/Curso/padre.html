@@ -1,0 +1,478 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <!-- Favicon - Múltiples formatos para mejor compatibilidad -->
+  <link rel="icon" type="image/x-icon" href="{% static 'curso/favicon.ico' %}">
+ 
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Curso de Trading Gamer | Domina los Mercados{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Aprende trading profesional con metodología gamer. Deja la suerte atrás y domina los mercados financieros.{% endblock %}">
+  
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static 'curso/estilo.css' %}">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'curso/images/favicon.ico' %}">
+  
+  
+  <style>
+    :root {
+      --color-primario: #1a1a2e;
+      --color-secundario: #00b4d8;
+      --color-terciario: #4cc9f0;
+      --color-texto: #e6e6e6;
+      --color-fondo: #16213e;
+      --color-destacado: #f72585;
+      --color-exito: #4ad66d;
+    }
+    
+    /* Estructura base */
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Navbar mejorada */
+    .navbar {
+      background-color: var(--color-primario);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-terciario);
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    
+    .logo:hover {
+      color: var(--color-secundario);
+      transform: scale(1.02);
+    }
+    
+    .nav-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .nav-links a {
+      color: var(--color-texto);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--color-secundario);
+    }
+    
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--color-secundario);
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+    
+    /* Icono carrito mejorado */
+    .cart-icon-container {
+      position: relative;
+      margin-left: 1rem;
+    }
+    
+    .cart-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgba(0, 180, 216, 0.1);
+      transition: all 0.3s ease;
+      color: var(--color-texto);
+    }
+    
+    .cart-icon:hover {
+      background-color: var(--color-secundario);
+      color: var(--color-primario);
+      transform: scale(1.1);
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--color-destacado);
+      color: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    /* Botones de autenticación */
+    .auth-buttons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .btn-auth {
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    
+    .btn-login {
+      background-color: transparent;
+      border: 2px solid var(--color-secundario);
+      color: var(--color-secundario);
+    }
+    
+    .btn-login:hover {
+      background-color: var(--color-secundario);
+      color: var(--color-primario);
+    }
+    
+    .btn-register {
+      background-color: var(--color-destacado);
+      color: white;
+      border: 2px solid var(--color-destacado);
+    }
+    
+    .btn-register:hover {
+      background-color: transparent;
+      color: var(--color-destacado);
+    }
+    
+    .auth-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .auth-info span {
+      color: var(--color-texto);
+    }
+    
+    .auth-info a {
+      color: var(--color-exito);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .auth-info a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Contenido principal */
+    main {
+      flex: 1;
+      padding: 2rem 0;
+    }
+    
+    /* Footer mejorado */
+    footer {
+      background-color: var(--color-primario);
+      padding: 3rem 0 1.5rem;
+      margin-top: auto;
+      border-top: 1px solid rgba(0, 180, 216, 0.2);
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: var(--color-terciario);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .footer-about p {
+      opacity: 0.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .footer-social a {
+      color: var(--color-texto);
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+      background-color: var(--color-secundario);
+      color: var(--color-primario);
+      transform: translateY(-3px);
+    }
+    
+    .footer-links h3 {
+      color: var(--color-terciario);
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .footer-links h3:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--color-secundario);
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: var(--color-texto);
+      opacity: 0.8;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--color-secundario);
+      padding-left: 5px;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    /* Botones de contacto flotantes */
+    .contact-buttons {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 999;
+    }
+    
+    .btn-contact {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-contact:hover {
+      transform: scale(1.1) translateY(-5px);
+    }
+    
+    .btn-whatsapp {
+      background-color: #25D366;
+    }
+    
+    .btn-telegram {
+      background-color: #0088cc;
+    }
+    
+    /* Efecto pulse para CTA */
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(244, 63, 94, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(244, 63, 94, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Barra de navegación mejorada -->
+  <nav class="navbar">
+    <a href="#" class="logo">METODO HARGEMI</a>
+    
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="{% url 'inicio' %}">Inicio</a>
+        <a href="{% url 'tradingpago' %}">Curso Trading</a>
+        <a href="{% url 'tradingfree' %}">Curso Basico Free</a>
+      </div>
+      
+      <div class="cart-icon-container">
+        <a href="#carrito" class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="auth-buttons">
+      {% if user.is_authenticated %}
+        <div class="auth-info">
+          <span>Hola, Usuario</span>
+          <a href="#logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+      {% else %}
+        <a href="#login" class="btn-auth btn-login">Iniciar Sesión</a>
+        <a href="#registro" class="btn-auth btn-register">Registrarte</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+    {% block content %}
+    <!-- Contenido que será reemplazado por las plantillas hijas -->
+    {% endblock %}
+  </main>
+
+  <!-- Footer mejorado -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <span class="footer-logo">METODO HARGEMI</span>
+        <p>Transformamos gamers en traders profesionales con nuestro método probado en los mercados financieros.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+          <li><a href="holaa">Inicio</a></li>
+          <li><a href="#curso">Curso Básico</a></li>
+          <li><a href="#tienda">Tienda</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#terminos">Términos y Condiciones</a></li>
+          <li><a href="#privacidad">Política de Privacidad</a></li>
+          <li><a href="#garantia">Garantía</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Contacto</h3>
+        <ul>
+          <li><i class="fas fa-envelope"></i> info@metodohargemi.com</li>
+          <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+          <li><i class="fas fa-map-marker-alt"></i> Ciudad, País</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 METODO HARGEMI. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botones de contacto flotantes -->
+  <div class="contact-buttons">
+    <a href="#" class="btn-contact btn-whatsapp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" class="btn-contact btn-telegram">
+      <i class="fab fa-telegram"></i>
+    </a>
+  </div>
+</body>
+</html>

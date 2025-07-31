@@ -1,0 +1,156 @@
+{% extends "Curso/index.html" %}
+{% load static %}
+
+{% block title %}Curso Básico de Trading | Método Hargemi{% endblock %}
+
+{% block content %}
+<section class="curso-section" style="padding: 4rem 0; background-color: var(--color-fondo);">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+    <div class="text-center" style="margin-bottom: 3rem;">
+      <h1 style="font-size: 2.8rem; font-weight: 800; color: var(--color-terciario); margin-bottom: 1rem;">Curso Básico de Trading</h1>
+      <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; color: var(--color-texto);">
+        Aprende los fundamentos esenciales con nuestras 6 lecciones gratuitas
+      </p>
+    </div>
+
+    <!-- Lista de Videos -->
+    <div class="video-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+      <!-- Video 1 -->
+      <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" class="video-card" style="display: block; background-color: rgba(0, 180, 216, 0.1); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; text-decoration: none;">
+        <div style="position: relative; padding-bottom: 56.25%; background-color: #000;">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg" alt="Introducción al Trading" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: rgba(255,0,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-play" style="color: white; font-size: 1.5rem; margin-left: 3px;"></i>
+          </div>
+        </div>
+        <div style="padding: 1.5rem;">
+          <h3 style="color: var(--color-secundario); margin-bottom: 0.5rem; font-size: 1.3rem;">1. Introducción al Trading</h3>
+          <p style="color: var(--color-texto); margin-bottom: 0; opacity: 0.9;">Conceptos básicos y vocabulario esencial</p>
+          <div style="display: flex; align-items: center; margin-top: 1rem;">
+            <i class="fas fa-clock" style="color: var(--color-secundario); margin-right: 0.5rem;"></i>
+            <span style="color: var(--color-texto); font-size: 0.9rem;">15 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Video 2 -->
+      <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" class="video-card" style="display: block; background-color: rgba(0, 180, 216, 0.1); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; text-decoration: none;">
+        <div style="position: relative; padding-bottom: 56.25%; background-color: #000;">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" alt="Análisis Técnico Básico" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: rgba(255,0,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-play" style="color: white; font-size: 1.5rem; margin-left: 3px;"></i>
+          </div>
+        </div>
+        <div style="padding: 1.5rem;">
+          <h3 style="color: var(--color-secundario); margin-bottom: 0.5rem; font-size: 1.3rem;">2. Análisis Técnico Básico</h3>
+          <p style="color: var(--color-texto); margin-bottom: 0; opacity: 0.9;">Patrones gráficos y soportes/resistencias</p>
+          <div style="display: flex; align-items: center; margin-top: 1rem;">
+            <i class="fas fa-clock" style="color: var(--color-secundario); margin-right: 0.5rem;"></i>
+            <span style="color: var(--color-texto); font-size: 0.9rem;">22 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Video 3 -->
+      <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" class="video-card" style="display: block; background-color: rgba(0, 180, 216, 0.1); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; text-decoration: none;">
+        <div style="position: relative; padding-bottom: 56.25%; background-color: #000;">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg" alt="Gestión de Riesgo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: rgba(255,0,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-play" style="color: white; font-size: 1.5rem; margin-left: 3px;"></i>
+          </div>
+        </div>
+        <div style="padding: 1.5rem;">
+          <h3 style="color: var(--color-secundario); margin-bottom: 0.5rem; font-size: 1.3rem;">3. Gestión de Riesgo</h3>
+          <p style="color: var(--color-texto); margin-bottom: 0; opacity: 0.9;">Stop loss y posición sizing</p>
+          <div style="display: flex; align-items: center; margin-top: 1rem;">
+            <i class="fas fa-clock" style="color: var(--color-secundario); margin-right: 0.5rem;"></i>
+            <span style="color: var(--color-texto); font-size: 0.9rem;">18 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Video 4 -->
+      <a href="https://www.youtube.com/watch?v=VIDEO_ID_4" target="_blank" class="video-card" style="display: block; background-color: rgba(0, 180, 216, 0.1); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; text-decoration: none;">
+        <div style="position: relative; padding-bottom: 56.25%; background-color: #000;">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_4/maxresdefault.jpg" alt="Psicología del Trader" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: rgba(255,0,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-play" style="color: white; font-size: 1.5rem; margin-left: 3px;"></i>
+          </div>
+        </div>
+        <div style="padding: 1.5rem;">
+          <h3 style="color: var(--color-secundario); margin-bottom: 0.5rem; font-size: 1.3rem;">4. Psicología del Trader</h3>
+          <p style="color: var(--color-texto); margin-bottom: 0; opacity: 0.9;">Control emocional y disciplina</p>
+          <div style="display: flex; align-items: center; margin-top: 1rem;">
+            <i class="fas fa-clock" style="color: var(--color-secundario); margin-right: 0.5rem;"></i>
+            <span style="color: var(--color-texto); font-size: 0.9rem;">25 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Video 5 -->
+      <a href="https://www.youtube.com/watch?v=VIDEO_ID_5" target="_blank" class="video-card" style="display: block; background-color: rgba(0, 180, 216, 0.1); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; text-decoration: none;">
+        <div style="position: relative; padding-bottom: 56.25%; background-color: #000;">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_5/maxresdefault.jpg" alt="Estrategias Básicas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: rgba(255,0,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-play" style="color: white; font-size: 1.5rem; margin-left: 3px;"></i>
+          </div>
+        </div>
+        <div style="padding: 1.5rem;">
+          <h3 style="color: var(--color-secundario); margin-bottom: 0.5rem; font-size: 1.3rem;">5. Estrategias Básicas</h3>
+          <p style="color: var(--color-texto); margin-bottom: 0; opacity: 0.9;">Implementación de estrategias efectivas</p>
+          <div style="display: flex; align-items: center; margin-top: 1rem;">
+            <i class="fas fa-clock" style="color: var(--color-secundario); margin-right: 0.5rem;"></i>
+            <span style="color: var(--color-texto); font-size: 0.9rem;">20 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Video 6 -->
+      <a href="https://www.youtube.com/watch?v=VIDEO_ID_6" target="_blank" class="video-card" style="display: block; background-color: rgba(0, 180, 216, 0.1); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; text-decoration: none;">
+        <div style="position: relative; padding-bottom: 56.25%; background-color: #000;">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_6/maxresdefault.jpg" alt="Tu Primer Trade" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: rgba(255,0,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-play" style="color: white; font-size: 1.5rem; margin-left: 3px;"></i>
+          </div>
+        </div>
+        <div style="padding: 1.5rem;">
+          <h3 style="color: var(--color-secundario); margin-bottom: 0.5rem; font-size: 1.3rem;">6. Tu Primer Trade</h3>
+          <p style="color: var(--color-texto); margin-bottom: 0; opacity: 0.9;">Pon en práctica lo aprendido</p>
+          <div style="display: flex; align-items: center; margin-top: 1rem;">
+            <i class="fas fa-clock" style="color: var(--color-secundario); margin-right: 0.5rem;"></i>
+            <span style="color: var(--color-texto); font-size: 0.9rem;">30 min</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center" style="margin-top: 4rem; padding: 3rem; background-color: rgba(0, 180, 216, 0.1); border-radius: 10px;">
+      <h2 style="font-size: 2rem; color: var(--color-terciario); margin-bottom: 1.5rem;">¿Listo para llevar tu trading al siguiente nivel?</h2>
+      <p style="font-size: 1.1rem; color: var(--color-texto); max-width: 600px; margin: 0 auto 2rem;">
+        Accede a nuestro curso premium con mentorías personalizadas y estrategias avanzadas
+      </p>
+     <!-- <a href="{ # }" class="btn-primary pulse" style="display: inline-block; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 600; background: linear-gradient(to right, var(--color-exito), #2e8b57); border-radius: 50px; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(74, 214, 109, 0.4);">
+        VER CURSO PREMIUM-->
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Efectos hover para las tarjetas de video */
+  .video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Asegurar que las imágenes de los videos se vean bien */
+  .video-container img {
+    transition: opacity 0.3s ease;
+  }
+  
+  .video-card:hover .video-container img {
+    opacity: 0.8;
+  }
+</style>
+{% endblock %}
