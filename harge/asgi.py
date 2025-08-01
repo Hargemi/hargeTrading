@@ -11,8 +11,10 @@ import os
 
 from django.core.asgi import get_asgi_application
 from whitenoise import WhiteNoise
+from whitenoise.middleware import WhiteNoiseMiddleware
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'harge.settings')
 
 application = get_asgi_application()
+application = WhiteNoiseMiddleware(application)
 application = WhiteNoise(application, root='staticfiles')
